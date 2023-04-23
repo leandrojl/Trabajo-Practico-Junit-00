@@ -11,11 +11,12 @@ public class Contacto {
 		String localidad;
 		String provincia;
 		Boolean esCliente;
-		Boolean serLlamadoNuevamente;
+		Boolean serLlamado=true;
+		Boolean enLlamada=false;
 		
 		public Contacto(String nombre, String apellido, Integer celular, String email, String direccion,
 				Integer codigoPostal, String localidad, String provincia, Boolean esCliente,
-				Boolean serLlamadoNuevamente) {
+				Boolean serLlamado, Boolean enLlamada) {
 			super();
 			this.nombre = nombre;
 			this.apellido = apellido;
@@ -26,12 +27,40 @@ public class Contacto {
 			this.localidad = localidad;
 			this.provincia = provincia;
 			this.esCliente = esCliente;
-			this.serLlamadoNuevamente = serLlamadoNuevamente;
+			this.serLlamado = serLlamado;
+			this.enLlamada = enLlamada;
 		}
 		
 		
 		public Contacto() {
 			
+		}
+		
+		
+
+		public Contacto(String nombre, String apellido, int celular, String email, String direccion, int codigoPostal, String localidad,
+				String provincia, boolean esCliente, boolean serLlamado) {
+			super();
+			this.nombre = nombre;
+			this.apellido = apellido;
+			this.celular = celular;
+			this.email = email;
+			this.direccion = direccion;
+			this.codigoPostal = codigoPostal;
+			this.localidad = localidad;
+			this.provincia = provincia;
+			this.esCliente = esCliente;
+			this.serLlamado = serLlamado;
+		}
+
+
+		public Boolean getSerLlamado() {
+			return serLlamado;
+		}
+
+
+		public void setSerLlamado(Boolean serLlamado) {
+			this.serLlamado = serLlamado;
 		}
 
 
@@ -124,14 +153,19 @@ public class Contacto {
 			this.esCliente = esCliente;
 		}
 
-
-		public Boolean getSerLlamadoNuevamente() {
-			return serLlamadoNuevamente;
+		public Boolean getEnLlamada() {
+			return enLlamada;
 		}
 
 
-		public void setSerLlamadoNuevamente(Boolean serLlamadoNuevamente) {
-			this.serLlamadoNuevamente = serLlamadoNuevamente;
+		public void setEnLlamada(Boolean enLlamada) {
+			this.enLlamada = enLlamada;
+		}
+
+
+		public void cambiarEstadoDeLlamado() {
+			this.enLlamada = true;
+			
 		}
 		
 		

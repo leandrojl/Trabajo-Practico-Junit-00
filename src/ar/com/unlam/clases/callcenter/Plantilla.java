@@ -1,6 +1,7 @@
 package ar.com.unlam.clases.callcenter;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Plantilla {
 	
@@ -26,6 +27,32 @@ public class Plantilla {
 
 	public void setContactos(ArrayList<Contacto> contactos) {
 		this.contactos = contactos;
+	}
+
+	public Contacto obtenerCandidato() {
+		
+		ArrayList<Contacto> lista = new ArrayList<Contacto>();
+		
+		for(Contacto contacto : contactos) {
+			if(contacto.getEsCliente()==false && contacto.getSerLlamado() == true && (contacto.getCodigoPostal() > 1200 && contacto.getCodigoPostal()<1800)) {
+				
+				lista.add(contacto);
+				
+			}
+		}
+		
+		Contacto elementoAleatorio = seleccionAleatoria(lista);
+		
+		return elementoAleatorio;
+		
+	}
+
+	private Contacto seleccionAleatoria(ArrayList<Contacto> lista) {
+		
+		Random rand = new Random();
+        int indiceAleatorio = rand.nextInt(lista.size());
+        Contacto elementoAleatorio = lista.get(indiceAleatorio);
+        return elementoAleatorio;
 	}
 
 	
