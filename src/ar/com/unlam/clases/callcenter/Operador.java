@@ -20,4 +20,31 @@ public class Operador {
 		return candidato;
 	}
 
+	public Boolean llamadaExitosa(Contacto candidato) {
+		
+		if(candidato.getEsCliente()) {
+			return true;
+		}
+		
+		return false;
+	}
+
+	public void cambiarEstadoDelClienteDeSerLlamado(Contacto candidato, String string) {
+		if(string.equals("No ser llamado")) {
+			candidato.setSerLlamado(false);
+		}else if(string.equals("Ser llamado")){
+			candidato.setSerLlamado(true);
+		}
+		
+	}
+
+	public void cambiarEstadoDelClienteDelCandidato(Contacto candidato, String string) {
+		if(string.equals("No ser cliente")) {
+			candidato.setEsCliente(false);
+		}else if(string.equals("Ser cliente")){
+			candidato.setEsCliente(true);
+		}
+		
+	}
+
 }
