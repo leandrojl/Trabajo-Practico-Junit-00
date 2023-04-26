@@ -25,5 +25,26 @@ public class TestFutsal {
 		
 		Assert.assertTrue(equipo.getJugadores().size() ==5);
 	}
+	
+	@Test
+	public void queSePuedaCalcularElValorDelEquipo() {
+		Equipo equipo = new Equipo("Racing");
+		Jugador jugador1 = new Jugador(1,25);
+		Jugador jugador2 = new Jugador(2,19);
+		Jugador jugador3 = new Jugador(1,31);
+		Jugador jugador4 = new Jugador(5,22);
+		Jugador jugador5 = new Jugador(1,28);
+		
+		equipo.agregarJugador(jugador1);
+		equipo.agregarJugador(jugador2);
+		equipo.agregarJugador(jugador3);
+		equipo.agregarJugador(jugador4);
+		equipo.agregarJugador(jugador5);
+		
+		Integer valorEsperado = equipo.calcularValorDelEquipo();
+		
+		Assert.assertTrue(valorEsperado == 10);
+		
+	}
 
 }

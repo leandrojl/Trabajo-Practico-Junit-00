@@ -2,6 +2,8 @@ package ar.com.unlam.clases.futsal;
 
 import java.util.ArrayList;
 
+import ar.com.unlam.clases.callcenter.Contacto;
+
 public class Equipo {
 	String nombre;
 	ArrayList<Jugador> jugadores = new ArrayList<>();
@@ -30,6 +32,18 @@ public class Equipo {
 	}
 	public void setJugadores(ArrayList<Jugador> jugadores) {
 		this.jugadores = jugadores;
+	}
+	public Integer calcularValorDelEquipo() {
+		
+		Integer precioEquipo = 0;
+		
+		for(Jugador jugador : jugadores) {
+			
+			precioEquipo = precioEquipo + jugador.getPrecio();
+				
+			}
+		
+		return precioEquipo;
 	}
 	
 	
