@@ -45,6 +45,23 @@ public class Equipo {
 		
 		return precioEquipo;
 	}
+	public Integer calcularEdadDelEquipo() {
+		
+		Integer edadEquipo = 0;
+		Integer promedioEdad=0;
+		
+		for(Jugador jugador : jugadores) {
+			
+			edadEquipo = edadEquipo + jugador.getEdad();
+				
+			}
+		
+		promedioEdad= edadEquipo/jugadores.size();
+		
+		return promedioEdad;
+		
+		
+	}
 	
 	
 	
