@@ -9,13 +9,36 @@ public class Partido {
 	Equipo equipoVisitante=null;
 	private List<Evento> goles = new ArrayList<>();
 	private List<Evento> amonestados = new ArrayList<>();
+	private List<Evento> expulsados = new ArrayList<>();
 	
 	public Partido() {
 		
 	}
 	
+	public List<Evento> getExpulsados() {
+		return expulsados;
+	}
+
+	public void setExpulsados(List<Evento> expulsados) {
+		this.expulsados = expulsados;
+	}
+
+	
 	public void registrarAmonestado(Evento evento) {
-		amonestados.add(evento);
+			if(amonestados.isEmpty()) {
+				amonestados.add(evento);
+			}else {
+				for(Evento amonestado : amonestados) {
+					if(amonestado.getAutor().equals(evento.getAutor())) {
+						registrarExpulsado(evento);
+					}else {
+						amonestados.add(evento);
+					}
+						
+					}
+				
+			}
+			
 	}
 	public void registrarGol(Evento evento) {
 		goles.add(evento);
@@ -65,6 +88,11 @@ public class Partido {
 
 	public void setEquipoVisitante(Equipo equipoVisitante) {
 		this.equipoVisitante = equipoVisitante;
+	}
+
+	public void registrarExpulsado(Evento expulsado) {
+		expulsados.add(expulsado);
+		
 	}
 
 	}
